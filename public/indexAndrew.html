@@ -1,0 +1,286 @@
+<!DOCTYPE>
+
+<!-- baby name controller -->
+
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  
+}
+
+.line {
+  fill: none;
+  stroke: #19EACB;
+  stroke-width: 1.5px;
+}
+
+#yearNum {
+	border:0; 
+	color:#19EACB; 
+	font-weight:bold;
+}
+.yearSlider{
+	width:50%;
+}
+.gain{
+	color: #19e857;
+}
+.loss{
+	color: #ea1958;
+}
+
+#ex1Slider .slider-handle{
+	background:#19EACB;
+}
+#ex2Slider .slider-handle{
+	background:#19EACB;
+}
+span.yearMarker {
+    margin-right: 10px;
+	font-weight: 700;
+}
+.slider.slider-horizontal {
+    width: 87% !important;
+}
+p.timelineHeader {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+</style>
+
+<!--<html ng-app="babyNameApp">-->
+<html ng-app="babyNameApp">
+<head>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/bootstrap-slider.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/bootstrap-slider.min.js"></script>
+
+<link rel="stylesheet" type="text/css"href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/css/bootstrap-slider.css">
+
+<link rel="stylesheet" type="text/css"href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/css/bootstrap-slider.min.css">
+
+<script>
+  $(function() {
+    $( "#slider" ).slider({
+      value:100,
+      min: 2001,
+      max: 2014,
+      step: 1,
+      slide: function( event, ui ) {
+		//console.log(ui.value);
+        $( "#yearNum" ).val(ui.value );
+		//'$( ".test" ).html(ui.value);
+		$( ".test" ).html('{{currentName}}');
+      }
+    });
+    $( "#yearNum" ).val($( "#slider" ).slider( "value" ) );
+	//$( ".test" ).html($( "#slider" ).slider( "value" ) );
+	$( ".test" ).html('{{currentName}}');
+  });
+  
+  
+  </script>
+
+</head>
+
+<!--<body  ng-controller="BabyNameCtrl">-->
+<body ng-controller="BabyNameCtrl">
+	<div class="theHeader">
+		<p class="headerText">{{currentName}}'s Statistics</p>
+	</div>
+	<div class="container">
+		<div class="svgContainer"></div>
+			
+			<!--<input type="range" id="yearRange" ng-model="theCount" ng-change="changeCount();" min="{{minYear}}" max="{{maxYear}}" value="{{seek}}">-->
+		<div class="leftDataContiner">
+			<p class="timelineHeader">Per Year Timeline Information</p>
+			<div class="col-md-8">
+				<span class="yearMarker">{{minYear}}</span>
+					<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="2001" data-slider-max="2014" data-slider-step="1" data-slider-value="2001" ng-model="theCount" ng-change="changeCount();"/>
+				<span class="yearMarker">{{maxYear}}</span>
+			</div>
+			<div class="col-md-2">
+				<!--<p>year: {{theCount}} </p>-->
+				<p>Count for current Year: {{currentCount}}</p>
+			</div>
+			<div class="col-md-2">
+				<p ng-class="checkGain(countGain)">Count difference From Prior Year: {{countDiff}}</p>
+			</div>
+		</div>
+		<div class="rightDataContiner">
+			<p class="timelineHeader">Year Range Timeline Information</p>
+			<div class="col-md-8">
+				<span class="yearMarker">{{minYear}}</span>
+					<input id="ex2" data-slider-id='ex2Slider' type="text" class="span2" value="" data-slider-min="2001" data-slider-max="2014" data-slider-step="1" data-slider-value="[2004,2008]" ng-model="range" ng-change="changeRange();"/>
+				<span class="yearMarker">{{maxYear}}</span>
+			</div>
+			<div class="col-md-2">	
+				<!--<p>first Year: {{firstYear}}, Last Year: {{lastYear}} </p>-->
+				<p>Total Count between range: {{totalCount}} </p>
+			</div>
+			<div class="col-md-2">
+				<p ng-class="checkGain(rangeDiffGain)">Difference in Count Range: {{rangeDiff}}</p>
+			</div>
+			
+		</div>
+		<script>
+		$('#ex1').slider({
+			formatter: function(value) {
+				return ('Year: '+ value);
+			}
+		});
+		var slider = new Slider('#ex1', {
+			formatter: function(value) {
+				return ('Year: ' + value);
+			}
+		});
+		// With JQuery
+		$("#ex2").slider({});
+
+		// Without JQuery
+		var slider = new Slider('#ex2', {
+			formatter: function(value) {
+				return ('Range: ' + value);
+			}
+		});
+		</script>
+		
+		
+		
+		
+		<p>jquery</p>
+		<div class="infoContainer">
+			<input type="text" id="yearNum" readonly>
+			<p class="test">hhh</p>
+			<!--<div id="slider" class="yearSlider" ng-model="theCount" ng-change="changeCount();"></div>-->
+		</div>
+		
+		<!--{{names}}-->
+		
+		<div>
+		
+			<a>
+				<div class="col-md-2 namesBox">
+					<p class="namesBoxText">{{name.Name}}</p>
+					<p>{{name.Year}}</p>
+					<p>{{name.Id}}</p>
+					<p>{{haventSeen(name)}}</p>
+				</div>
+			</a>
+			<!--{{name.Name}}
+			{{name.Year}}
+			{{name.Gender}}
+			{{name.Count}}-->
+		</div>
+	</div>
+	
+	
+	
+	<script src="c.js"></script>
+	
+	
+	<script>
+
+		var margin = {top: 20, right: 20, bottom: 40, left: 60},
+			width = 1140 - margin.left - margin.right,
+			height = 500 - margin.top - margin.bottom;
+
+		var formatDate = d3.time.format("%d-%b-%y");
+
+//		var x = d3.time.scale()
+//			.range([0, width]);
+
+		var x = d3.scale.linear()
+			.range([0, width]);
+
+			
+		var y = d3.scale.linear()
+			.range([height, 0]);
+
+		var xAxis = d3.svg.axis()
+			.scale(x)
+			.orient("bottom");
+
+		var yAxis = d3.svg.axis()
+			.scale(y)
+			.orient("left");
+
+		var line = d3.svg.line()
+			.x(function(d) { return x(d.Year); })
+			.y(function(d) { return y(d.Count); });
+
+		var svg = d3.select(".svgContainer").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		d3.csv("AndrewData.csv", type, function(error, data) {
+		  if (error) throw error;
+
+		  x.domain(d3.extent(data, function(d) { return d.Year; }));
+		  y.domain(d3.extent(data, function(d) { return d.Count; }));
+
+		  svg.append("g")
+			  .attr("class", "x axis")
+			  .attr("transform", "translate(0," + height + ")")
+			  .call(xAxis);
+
+		  svg.append("g")
+			  .attr("class", "y axis")
+			  .call(yAxis)
+			.append("text")
+			  .attr("transform", "rotate(-90)")
+			  .attr("y", 6)
+			  .attr("dy", ".71em")
+			  .style("text-anchor", "end")
+			  .text("Count");
+
+		  svg.append("path")
+			  .datum(data)
+			  .attr("class", "line")
+			  .attr("d", line);
+		
+		});
+
+		function type(d) {
+		  d.Year = d.Year;
+		  d.Count = +d.Count;
+		  return d;
+		}
+
+	</script>
+	
+	
+	
+	
+</body>
+</html>

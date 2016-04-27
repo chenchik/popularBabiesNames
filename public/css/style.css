@@ -1,7 +1,7 @@
 .theHeader {
     width: 100%;
     text-align: center;
-    background: #19eacb;
+    background: #6B6ECF;
 }
 p.headerText {
     padding: 20px;
@@ -15,4 +15,19 @@ p.headerText {
     outline: 1px solid #19eacb;
     background: white;
     /* opacity: 0.5; */
+}
+.d3Container {
+    margin-top: 0px;
+}
+p.infoText {
+    color: #777777;
+    font-size: 20px;
+}
+.otherD3Container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+.belowD3Container {
+    text-align: center;
 }

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<script>
+	var globalYear = '<%= year %>';
+	console.log('<%= year %>');
+</script>
+
+<html ng-app="yearApp">
+<style>
+
+text {
+  font: 10px sans-serif;
+}
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+  color: #ffffff;
+}
+
+.arc path {
+  stroke: #fff;
+}
+
+.theHeader {
+    width: 100%;
+    text-align: center;
+    background: #6B6ECF;
+}
+p.headerText {
+    padding: 20px;
+    color: white;
+    font-size: 40px;
+}
+.namesBox {
+    text-align: center;
+    padding: 20px;
+    /* margin: 0px; */
+    outline: 1px solid #19eacb;
+    background: white;
+    /* opacity: 0.5; */
+}
+.d3Container {
+    margin-top: 0px;
+}
+p.infoText {
+    color: #777777;
+    font-size: 20px;
+    margin-bottom: 24px;
+}
+.otherD3Container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+.belowD3Container {
+    display:inline-flex;
+    width: 1140px;
+    background: white;
+    z-index: 1;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.timeContainer {
+    width: 50%;
+    padding-right: 20px;
+    margin-right: 20px;
+    border-right: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+.angContainer{
+	width: 48%;
+}
+div#theHomeSlider {
+    width: 86%;
+    margin-top: 17px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+span.sliderMark {
+    font-weight: 700;
+    margin-top: 12px;
+    font-size: 20px;
+}
+p.submitText {
+    color: #6b6ecf;
+    font-size: 20px;
+}
+.sliderContainer {
+    display: flex;
+    margin-top: -6px;
+}
+.submitTimeContainer {
+    width: 23%;
+    text-align: center;
+    padding: 0px;
+    padding-top: 11px;
+        border: 1px solid #6b6ecf;
+    margin-left: 23px;
+    border-radius: 5px;
+}
+.submitTimeContainer:hover {
+    background: #6b6ecf;
+}
+.slider-handle.min-slider-handle.round {
+    background: #6b6ecf;
+}
+.submitTimeContainer:hover > a {
+    text-decoration: none;
+}
+.submitTimeContainer:hover > a > p {
+    color: white;
+}
+.nameContainer {
+    padding: 10px;
+    padding-top: 21px;
+    padding-left: 9px;
+    text-align: center;
+    border: 1px solid black;
+    margin: 9.5px;
+    border-radius: 6px;
+}
+.nameContainer.M > p {
+    color: #6B6ECF;
+}
+.nameContainer.M {
+    border-color: #6B6ECF;
+}
+.nameContainer.M:hover {
+    text-decoration: none;
+    background: #6b6ecf;
+}
+.nameContainer.M:hover > p {
+    color: white;
+}
+
+
+
+.nameContainer.F > p {
+    color: #CE6DBD;
+}
+.nameContainer.F {
+    border-color: #CE6DBD;
+}
+.nameContainer.F:hover {
+    text-decoration: none;
+    background: #CE6DBD;
+}
+.nameContainer.F:hover > p {
+    color: white;
+}
+.gButton:hover {
+    cursor: pointer;
+}
+.gButton {
+
+    margin-top: -5px;
+    margin-left: 27px;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top:5px;
+    padding-bottom: 5px;
+    border-radius: 36px;
+    font-size: 20px;
+}
+.genders {
+    display: inline-flex;
+}
+.infoText {
+    color: #777777;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+.col-md-12.letterContainer {
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #bbb;
+    padding-top: 10px;
+}
+p.letterText {
+    font-size: 40px;
+    color: #888;
+}
+.activeMale{
+	color:white;
+	background: #6b6ecf;
+	border:1px solid #6b6ecf;
+}
+.deactiveMale{
+	color:#6b6ecf;
+	background:white;
+	border:1px solid #6b6ecf;
+}
+.activeFemale{
+	color:white;
+	background: #CE6DBD;
+	border:1px solid #CE6DBD;
+}
+.deactiveFemale{
+	color:#CE6DBD;
+	background:white;
+	border:1px solid #CE6DBD;
+}
+.alphaSliderContainer {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 0px;
+}
+span.sliderMark.alphaSliderMarker {
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+div#theAlphaSlider {
+    width: 35%;
+    margin-top: 25px;
+}
+.alphaInfoText {
+    margin-top: 20px;
+}
+.slider-handle.max-slider-handle.round {
+    background: #6b6ecf;
+}
+p.questionMarkText {
+    font-size: 20px;
+    /* padding: 10px; */
+    color: white;
+}
+.infoSymbol {
+    width: 30px;
+    /* height: 32px; */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+    background: #6b70cf;
+    border-radius: 20px;
+}
+.infoSymbol:hover{
+	cursor:pointer;
+}
+.informationConatainer {
+    text-align: center;
+    margin-top: 40px;
+}
+.initialInfo {
+    color: #777777;
+    font-size: 20px;
+}
+.furtherInfo {
+    color: #777777;
+    font-size: 20px;
+}
+span.sliderMark.alphaSliderMarker.right {
+    margin-right: 0px;
+}
+.tooltip {
+    position: absolute;
+    background: black;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 5px solid black;
+	-webkit-transition: opacity 0.1s;
+	transition: opacity 0.15s;
+}
+circle:hover {
+    opacity: 0.7;
+}
+circle {
+    transition: opacity 0.3s;
+}
+
+
+</style>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> 
+
+<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+<link rel="stylesheet" type="text/css" href="/css/styleTest.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/bootstrap-slider.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/bootstrap-slider.min.js"></script>
+
+<link rel="stylesheet" type="text/css"href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/css/bootstrap-slider.css">
+
+<link rel="stylesheet" type="text/css"href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/css/bootstrap-slider.min.css">
+
+</head>
+
+<body  ng-controller="yearCtrl">
+
+
+
+	<div class="theHeader">
+		<p class="headerText">Common Baby Names For <%= year %></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	<div class="container">
+		<div class="informationConatainer">
+			<div class="infoSymbol">
+				<p class="questionMarkText">?</p>
+			</div>
+			<div class="initialInfo">
+				<p>This is a website showcasing ineractive data about the most popular baby names throughout 1880 to 2014.</p>
+				<p>Click the image above to reveal further information.</p>
+			</div>
+			<div class="furtherInfo" style="display:none;">
+				<p>This is a website showcasing ineractive data about the most popular baby names throughout 1880 to 2014.</p>
+				<p>Currently, the most popular baby names of <%= year %> are displayed. To show a bubble chart of popular baby names for other years. Chose a year on the timeline below and click submit.</p>
+				<p>Below the timeline are a list of names, these names represent the most popular names throughout time where popularity is defined as a name having had a count of greater than 15000 for at least one year.</p>
+				<p>You can interact with these names by restricting names by gender, or restricting them alphabetically.</p>
+				<p>Clicking on a name takes you to a seperate page that displays interactive statistics for that name from 1880 to 2014.</p>
+			</div>
+		</div>
+		<div class="otherD3Container"></div>
+		<div class="belowD3Container">
+			<div class="timeContainer">
+				<p class="infoText">Above are the most common baby names for <%= year %>.</p>
+				<p class="infoText">Choose a year to render other common names in time. </p>
+				<div class="sliderContainer">
+					<span class="sliderMark">1880</span>
+						<input id="homeSlider" data-slider-id='theHomeSlider' type="text" data-slider-min="1880" data-slider-max="2014" data-slider-step="1" data-slider-value="<%= year %>" ng-model="theYear" ng-change="changeCount();"/>
+					<span class="sliderMark">2014</span>
+					<!--<p>{{theYear}}</p>-->
+					<p id="initYear" style="display:none;"><%= year %></p>
+					<div class="submitTimeContainer">
+						<a href="/home/year/{{theYear}}" class="aTagTimeButton"><p class="submitText">Submit</p></a>
+					</div>
+				</div>
+			</div>
+			<div class="angContainer">
+				<p class="infoText">Below is a list of all major names throughout time.</p>
+				<div>
+					<div class="genders">
+						<div class="infoText">Click a sign to toggle gender.</div>
+						<div ng-click="toggleMale();" ng-class="angMale" class="gButton male">&#9794;</div>
+						<div ng-click="toggleFemale();" ng-class="angFemale" class="gButton female">&#9792;</div>
+					</div>
+				</div>
+				<div class="alphaSliderContainer">
+					<p class="infoText alphaInfoText">Move the slider to restrict order.</p>
+					<span class="sliderMark alphaSliderMarker left">A</span>
+						<input id="alphaSlider" data-slider-id='theAlphaSlider' type="text" data-slider-min="1" data-slider-max="26" data-slider-step="1" data-slider-value="[1,26]" ng-model="theAlphaRange" ng-change="changeAlpha();"/>
+					<span class="sliderMark alphaSliderMarker right">Z</span>
+					
+				</div>
+
+						
+			</div>	
+		</div>
+		
+		
+
+		<div class="outerOuterLetterConatiner">
+			<div class="outerLetterContainer" ng-repeat="(key,letter) in letters"ng-show="showLetter(key)">
+				<div class="col-md-12 letterContainer">
+					<p class="letterText">{{key}}</p>
+				</div>
+				<a href="/name/{{name.Name}}" ng-repeat="name in letter" ng-class="name.Gender" class="nameContainer col-md-1" ng-show="showGender(name.Gender)">
+					<p class="namesBoxText">{{name.Name}}</p>
+				</a>
+			</div>
+		</div>
+		
+		
+		
+	</div>
+	<div class="tooltip"></div>
+	<script>
+		
+		var slider = new Slider('#homeSlider', {
+			formatter: function(value) {
+				return ('Year: ' + value);
+			}
+		});
+		var toAlpha = {1: 'A',
+								2: 'B',
+								3: 'C',
+								4: 'D',
+								5: 'E',
+								6: 'F',
+								7: 'G',
+								8: 'H',
+								9: 'I',
+								10: 'J',
+								11: 'K',
+								12: 'L',
+								13: 'M',
+								14: 'N',
+								15: 'O',
+								16: 'P',
+								17: 'Q',
+								18: 'R',
+								19: 'S',
+								20: 'T',
+								21: 'U',
+								22: 'V',
+								23: 'W',
+								24: 'X',
+								25: 'Y',
+								26: 'Z'};
+		var toLetter = function(num){
+			for(var i = 1; i <= 26; i++){
+				if(i == num){
+					return toAlpha[i];
+				}
+			}
+			//default value
+			return "A";
+		}
+
+		var alphaSlider = new Slider('#alphaSlider', {
+			formatter: function(value) {
+				if(typeof value == 'object'){
+					for(var i in value){
+						value[i] = toLetter(value[i]);
+					}
+				}
+				else{
+					value = toLetter(value);
+				}
+				return ('Range: ' + value);
+			}
+		});
+		$('.infoSymbol').on('click', function(e){
+			$('.furtherInfo').slideToggle('fast');
+			$('.initialInfo').slideUp('fast');
+		});
+
+		/*$(window).scroll(function(e){ 
+		  var $el = $('.belowD3Container'); 
+		  var isPositionFixed = ($el.css('position') == 'fixed');
+		  if ($(this).scrollTop() > 200 && !isPositionFixed){ 
+		    $('.belowD3Container').css({'position': 'fixed', 'top': '0px'}); 
+		  }
+		  if ($(this).scrollTop() < 200 && isPositionFixed)
+		  {
+		    $('.belowD3Container').css({'position': 'static', 'top': '0px'}); 
+		  } 
+		});*/
+		//var mediaTop = $('.belowD3Container').offset().top + $(".otherD3Container").height() - 40; 
+		var mediaTop = $('.belowD3Container').offset().top; 
+		var media = $('.belowD3Container');
+		//var mediaTop = $('.container').position().top; 
+		//var media = $('.container');
+		//var elem = $('.belowD3Container');
+
+		$(document).scroll( function() {
+		   var scrollTop = $(document).scrollTop();
+		   console.log(mediaTop);
+		   console.log($(".otherD3Container").height());
+		   var mediaTop2 = mediaTop + $(".otherD3Container").height() + $('.informationConatainer').height() - $('.belowD3Container').height() + 60;
+		   //fix/unfix as necessary
+		   if (mediaTop2 < scrollTop) {
+		       //$(media).addClass('fixed');
+		       $(media).css({'position': 'fixed', 'top': '0px'}); 
+		       $(".outerOuterLetterConatiner").css({'margin-top': $('.belowD3Container').outerHeight()+'px'});
+		   }
+		   else { 
+		       $(media).css({'position': 'static', 'top': '0px'});
+		   	   $(".outerOuterLetterConatiner").css({'margin-top': '0px'});
+		   }
+		});
+	</script>
+	<script>
+	
+	var diameter = 700, //max size of the bubbles
+    color    = d3.scale.category20b(); //color category
+
+	var bubble = d3.layout.pack()
+		.sort(null)
+		.size([diameter, diameter])
+		.padding(1.5);
+
+	var svg = d3.select(".otherD3Container")
+		.append("svg")
+		.attr("width", diameter)
+		.attr("height", diameter)
+		.attr("class", "bubble");
+
+	d3.json("/home/common/"+globalYear, function(error, data){
+
+		//convert numerical values from strings to numbers
+		data = data.map(function(d){ d.value = +d["Count"]; return d; });
+
+		//bubbles needs very specific format, convert data to this.
+		var nodes = bubble.nodes({children:data}).filter(function(d) { return !d.children; });
+
+		//setup the chart
+		var bubbles = svg.append("g")
+			.attr("transform", "translate(0,0)")
+			.selectAll(".bubble")
+			.data(nodes)
+			.enter();
+
+		//create the bubbles
+		bubbles.append("circle")
+			.attr("r", function(d){ return d.r; })
+			.attr("cx", function(d){ return d.x; })
+			.attr("cy", function(d){ return d.y; })
+			.style("fill", function(d) { return color(d.value); })
+			.on('mouseover', function(d) {
+				console.log('over, value inside is ' + d.value);
+                d3.select('.tooltip')
+                    .html(d.Name + ': ' + d.value)
+					.style('opacity', 1);
+            })
+            .on('mouseout', function(d) {
+                d3.select('.tooltip')
+                    .style('opacity', 0);
+            })
+            .on('mousemove', function(d) {
+                d3.select('.tooltip')
+                    .style('left', (d3.event.clientX- 260) + 'px')
+                    .style('top', (d3.event.clientY - 760) + 'px');
+            });
+
+		//format the text for each bubble
+		bubbles.append("text")
+			.attr("x", function(d){ return d.x; })
+			.attr("y", function(d){ return d.y + 5; })
+			.attr("text-anchor", "middle")
+			.text(function(d){ return d["Name"]; })
+			.style({
+				"fill":"white", 
+				"font-family":"Helvetica Neue, Helvetica, Arial, san-serif",
+				"font-size": "12px"
+			})
+			.on('mouseover', function(d) {
+				console.log('over, value inside is ' + d.value);
+                d3.select('.tooltip')
+                    .html(d.Name + ': '+ d.value)
+					.style('opacity', 1);
+            })
+            .on('mouseout', function(d) {
+                d3.select('.tooltip')
+                    .style('opacity', 0);
+            })
+            .on('mousemove', function(d) {
+                d3.select('.tooltip')
+                    .style('left', (d3.event.clientX- 260) + 'px')
+                    .style('top', (d3.event.clientY - 760) + 'px');
+					//subtract pageX, scrollX
+            });
+	});
+	
+	</script>	
+	<script src="/yearController.js"></script>
+</body>
+</html>

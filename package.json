@@ -11,9 +11,11 @@
   "dependencies": {
     "body-parser": "^1.15.0",
     "bootstrap": "^3.3.6",
+    "bootstrap-slider": "^7.0.0",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "mongodb": "^2.1.16",
-    "mongojs": "^2.3.0"
+    "mongojs": "^2.3.0",
+    "nice-json2csv": "^0.2.0"
   }
 }

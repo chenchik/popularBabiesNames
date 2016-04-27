@@ -1,0 +1,347 @@
+<!DOCTYPE>
+
+<!-- baby name controller -->
+
+<script>
+	var globalName = '<%= name %>';
+	console.log('<%= name %>');
+</script>
+
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  
+}
+
+.line {
+  fill: none;
+  stroke: #6b6ecf;
+  stroke-width: 1.5px;
+}
+
+#yearNum {
+	border:0; 
+	color:#19EACB; 
+	font-weight:bold;
+}
+.yearSlider{
+	width:50%;
+}
+.gain{
+	color: #19e857;
+}
+.loss{
+	color: #ea1958;
+}
+
+#ex1Slider .slider-handle{
+	background:#6b6ecf;
+}
+#ex2Slider .slider-handle{
+	background:#6b6ecf;
+}
+span.yearMarker {
+    margin-right: 10px;
+	font-weight: 700;
+}
+.slider.slider-horizontal {
+    width: 87% !important;
+}
+p.timelineHeader {
+    font-weight: 500;
+    font-size: 20px;
+}
+.backButton {
+    padding: 10px;
+    border: 1px solid #6b6ecf;
+    border-radius: 5px;
+    color: #6b6ecf;
+    font-size: 15px;
+    margin-top: 40px;
+    text-align: center;
+    -webkit-transition: color 0.5s, background-color 0.5s;
+    transition: color 0.5s, background-color 0.5s;
+
+}
+.backButton:hover {
+    text-decoration: none;
+    color: white;
+    background: #6b6ecf;
+}
+.aTagBackButton:hover{
+	text-decoration: none;
+}
+.leftDataContiner {
+    margin-top: 40px;
+}
+.bottomContainer {
+    margin-top: 40px;
+}
+p.countText {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 0px;
+    margin-top: -6px;
+}
+.theFooter {
+    
+    background: #6b6ecf;
+    margin-top: 40px;
+}
+.footerContainer {
+    padding: 20px;
+    padding-bottom: 10px;
+}
+.footerText {
+    color: white;
+    font-size: 15px;
+}
+.footerATag:hover {
+    text-decoration: none;
+}
+a p.footerText:hover {
+    color: #eee;
+}
+.svgContainer {
+    padding-top: 40px;
+}
+
+</style>
+
+<!--<html ng-app="babyNameApp">-->
+<html ng-app="babyNameApp">
+<head>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/bootstrap-slider.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/bootstrap-slider.min.js"></script>
+
+<link rel="stylesheet" type="text/css"href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/css/bootstrap-slider.css">
+
+<link rel="stylesheet" type="text/css"href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.0.0/css/bootstrap-slider.min.css">
+
+<script>
+  $(function() {
+    $( "#slider" ).slider({
+      value:100,
+      min: 2001,
+      max: 2014,
+      step: 1,
+      slide: function( event, ui ) {
+		//console.log(ui.value);
+        $( "#yearNum" ).val(ui.value );
+		//'$( ".test" ).html(ui.value);
+		$( ".test" ).html('{{currentName}}');
+      }
+    });
+    $( "#yearNum" ).val($( "#slider" ).slider( "value" ) );
+	//$( ".test" ).html($( "#slider" ).slider( "value" ) );
+	$( ".test" ).html('{{currentName}}');
+  });
+  
+  
+  </script>
+
+</head>
+
+<!--<body  ng-controller="BabyNameCtrl">-->
+<p id="currentNameOnClient" style="display:none;"><%= name %></p>
+<body ng-controller="BabyNameCtrl">
+	<div class="theHeader">
+		<p class="headerText">{{currentName}}'s Statistics</p>
+	</div>
+	<div class="container">
+		<div class="svgContainer"></div>
+			
+			<!--<input type="range" id="yearRange" ng-model="theCount" ng-change="changeCount();" min="{{minYear}}" max="{{maxYear}}" value="{{seek}}">-->
+		<div class="leftDataContiner">
+			
+			<div class="col-md-8">
+				<p class="timelineHeader">Per Year Timeline Information</p>
+				<span class="yearMarker">{{minYear}}</span>
+					<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="1880" data-slider-max="2014" data-slider-step="1" data-slider-value="2001" ng-model="theCount" ng-change="changeCount();"/>
+				<span class="yearMarker">{{maxYear}}</span>
+			</div>
+			<div class="col-md-2">
+				<!--<p>year: {{theCount}} </p>-->
+				<p class="timelineHeader">Count</p> 
+				<p class="countText">{{currentCount}}</p>
+			</div>
+			<div class="col-md-2">
+				<p class="timelineHeader">Prior Year Diff.</p>
+				<p class="countText" ng-class="checkGain(countGain)">{{countDiff}}</p>
+			</div>
+		</div>
+		<div class="rightDataContiner">
+			
+			<div class="bottomContainer col-md-8">
+				<p class="timelineHeader">Year Range Timeline Information</p>
+				<span class="yearMarker">{{minYear}}</span>
+					<input id="ex2" data-slider-id='ex2Slider' type="text" class="span2" value="" data-slider-min="1880" data-slider-max="2014" data-slider-step="1" data-slider-value="[1900,1990]" ng-model="range" ng-change="changeRange();"/>
+				<span class="yearMarker">{{maxYear}}</span>
+			</div>
+			<div class="bottomContainer col-md-2">	
+				<!--<p>first Year: {{firstYear}}, Last Year: {{lastYear}} </p>-->
+				<p class="timelineHeader">Total Count</p>
+				<p class="countText">{{totalCount}} </p>
+			</div>
+			<div class="bottomContainer col-md-2">
+				<p class="timelineHeader">Diff. in Range</p>
+				<p class="countText" ng-class="checkGain(rangeDiffGain)">{{rangeDiff}}</p>
+
+			</div>
+			
+		</div>
+		<script>
+		$('#ex1').slider({
+			formatter: function(value) {
+				return ('Year: '+ value);
+			}
+		});
+		var slider = new Slider('#ex1', {
+			formatter: function(value) {
+				return ('Year: ' + value);
+			}
+		});
+		// With JQuery
+		$("#ex2").slider({});
+
+		// Without JQuery
+		var slider = new Slider('#ex2', {
+			formatter: function(value) {
+				return ('Range: ' + value);
+			}
+		});
+		</script>
+		
+		
+		<div class="col-md-2 backButtonContainer">
+			<a class="aTagBackButton" href="../../home/year/<%= past %>"><div class="backButton">Back to <%= past %></div></a>
+		</div>
+		
+		
+		
+		
+		
+		<!--{{names}}-->
+		
+		
+	</div>
+	<div class="theFooter">
+		<div class="container footerContainer">
+			<p class="footerText">&#169; Danila Chenchik Industries</p>
+			<a href="https://github.com/chenchik/popularBabiesNames" class="footerATag"><p class="footerText">Project Information</p></a>
+		</div>
+	</div>
+	
+	
+	
+	<script src="/c.js"></script>
+	
+	
+	<script>
+
+		var margin = {top: 20, right: 20, bottom: 40, left: 60},
+			width = 1140 - margin.left - margin.right,
+			height = 500 - margin.top - margin.bottom;
+
+		var formatDate = d3.time.format("%d-%b-%y");
+
+//		var x = d3.time.scale()
+//			.range([0, width]);
+
+		var x = d3.scale.linear()
+			.range([0, width]);
+
+			
+		var y = d3.scale.linear()
+			.range([height, 0]);
+
+		var xAxis = d3.svg.axis()
+			.scale(x)
+			.orient("bottom");
+
+		var yAxis = d3.svg.axis()
+			.scale(y)
+			.orient("left");
+
+		var line = d3.svg.line()
+			.x(function(d) { return x(d.Year); })
+			.y(function(d) { return y(d.Count); });
+
+		var svg = d3.select(".svgContainer").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		console.log(name);
+		
+		d3.json('/home/' + globalName, function(error, data) {
+		  if (error) throw error;
+		  
+		  console.log(data);
+
+		  x.domain(d3.extent(data, function(d) { return d.Year; }));
+		  y.domain(d3.extent(data, function(d) { return d.Count; }));
+
+		  svg.append("g")
+			  .attr("class", "x axis")
+			  .attr("transform", "translate(0," + height + ")")
+			  .call(xAxis);
+
+		  svg.append("g")
+			  .attr("class", "y axis")
+			  .call(yAxis)
+			.append("text")
+			  .attr("transform", "rotate(-90)")
+			  .attr("y", 6)
+			  .attr("dy", ".71em")
+			  .style("text-anchor", "end")
+			  .text("Count");
+
+		  svg.append("path")
+			  .datum(data)
+			  .attr("class", "line")
+			  .attr("d", line);
+		
+		});
+
+		function type(d) {
+		  d.Year = d.Year;
+		  d.Count = +d.Count;
+		  return d;
+		}
+
+	</script>
+	
+	
+	
+	
+</body>
+</html>
