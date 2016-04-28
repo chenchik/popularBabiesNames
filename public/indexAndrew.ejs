@@ -54,9 +54,10 @@ body {
 span.yearMarker {
     margin-right: 10px;
 	font-weight: 700;
+	    margin-left: 10px;
 }
 .slider.slider-horizontal {
-    width: 87% !important;
+    width: 84% !important;
 }
 p.timelineHeader {
     font-weight: 500;
@@ -115,6 +116,64 @@ a p.footerText:hover {
 }
 .svgContainer {
     padding-top: 40px;
+    width: 100%;
+    overflow: auto;
+}
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+	div#ex1Slider{
+		width: 81% !important;
+	}
+	div#ex2Slider{
+		width: 81% !important;
+	}
+}
+@media screen and (max-width: 992px) and (min-width: 770px) {
+	div#ex1Slider{
+		width: 83% !important;
+	}
+	div#ex2Slider{
+		width: 83% !important;
+	}
+	.topData.col-xs-6.col-sm-6.col-md-2 {
+    	margin-top: 25px;
+    	margin-bottom: 25px;
+	}
+}
+@media screen and (max-width: 770px) and (min-width: 0px) {
+	div#ex1Slider{
+		width: 81% !important;
+	}
+	div#ex2Slider{
+		width: 81% !important;
+	}
+	.topData.col-xs-6.col-sm-6.col-md-2 {
+    	margin-top: 30px;
+    	margin-bottom: 50px;
+	}
+}
+@media screen and (max-width: 670px) and (min-width: 0px) {
+	div#ex1Slider{
+		width: 80% !important;
+	}
+	div#ex2Slider{
+		width: 80% !important;
+	}
+}
+@media screen and (max-width: 640px) and (min-width: 0px) {
+	div#ex1Slider{
+		width: 70% !important;
+	}
+	div#ex2Slider{
+		width: 70% !important;
+	}
+}
+@media screen and (max-width: 500px) and (min-width: 0px) {
+	div#ex1Slider{
+		width: 59% !important;
+	}
+	div#ex2Slider{
+		width: 59% !important;
+	}
 }
 
 </style>
@@ -188,12 +247,12 @@ a p.footerText:hover {
 					<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="1880" data-slider-max="2014" data-slider-step="1" data-slider-value="2001" ng-model="theCount" ng-change="changeCount();"/>
 				<span class="yearMarker">{{maxYear}}</span>
 			</div>
-			<div class="col-md-2">
+			<div class="topData col-xs-6 col-sm-6 col-md-2">
 				<!--<p>year: {{theCount}} </p>-->
 				<p class="timelineHeader">Count</p> 
 				<p class="countText">{{currentCount}}</p>
 			</div>
-			<div class="col-md-2">
+			<div class="topData col-xs-6 col-sm-6 col-md-2">
 				<p class="timelineHeader">Prior Year Diff.</p>
 				<p class="countText" ng-class="checkGain(countGain)">{{countDiff}}</p>
 			</div>
@@ -206,12 +265,12 @@ a p.footerText:hover {
 					<input id="ex2" data-slider-id='ex2Slider' type="text" class="span2" value="" data-slider-min="1880" data-slider-max="2014" data-slider-step="1" data-slider-value="[1900,1990]" ng-model="range" ng-change="changeRange();"/>
 				<span class="yearMarker">{{maxYear}}</span>
 			</div>
-			<div class="bottomContainer col-md-2">	
+			<div class="bottomContainer col-xs-6 col-sm-6 col-md-2">	
 				<!--<p>first Year: {{firstYear}}, Last Year: {{lastYear}} </p>-->
 				<p class="timelineHeader">Total Count</p>
 				<p class="countText">{{totalCount}} </p>
 			</div>
-			<div class="bottomContainer col-md-2">
+			<div class="bottomContainer col-xs-6 col-sm-6 col-md-2">
 				<p class="timelineHeader">Diff. in Range</p>
 				<p class="countText" ng-class="checkGain(rangeDiffGain)">{{rangeDiff}}</p>
 
@@ -241,7 +300,7 @@ a p.footerText:hover {
 		</script>
 		
 		
-		<div class="col-md-2 backButtonContainer">
+		<div class="col-xs-12 col-sm-6 col-md-2 backButtonContainer">
 			<a class="aTagBackButton" href="../../home/year/<%= past %>"><div class="backButton">Back to <%= past %></div></a>
 		</div>
 		
@@ -266,10 +325,52 @@ a p.footerText:hover {
 	
 	
 	<script>
+	var windowWidth = $(window).width();
+	var documentWidth = $(document).width(); //retrieve current document width
 
+
+
+	/*var windowHeight = $(window).height(); //retrieve current window height
+	var documentWidth = $(document).width(); //retrieve current document width
+	var documentHeight = $(document).height(); //retrieve current document height
+	var vScrollPosition = $(document).scrollTop(); //retrieve the document scroll ToP position
+	var hScrollPosition = $(document).scrollLeft(); //retrieve the document scroll Left position
+
+	function onm_window_parameters(){ //called on viewer reload, screen resize or scroll
+
+	    windowWidth = $(window).width(); //retrieve current window width
+	    console.log
+	    windowHeight = $(window).height(); //retrieve current window height
+	    documentWidth = $(document).width(); //retrieve current document width
+	    documentHeight = $(document).height(); //retrieve current document height
+	    vScrollPosition = $(document).scrollTop(); //retrieve the document scroll ToP position
+	    hScrollPosition = $(document).scrollLeft(); //retrieve the document scroll Left position
+
+	}; //end function onm_window_parameters()
+*/
+
+
+	console.log("windowwidth" + windowWidth);
+
+	
 		var margin = {top: 20, right: 20, bottom: 40, left: 60},
 			width = 1140 - margin.left - margin.right,
 			height = 500 - margin.top - margin.bottom;
+
+		$(window).resize(function() {
+ 	 // This will execute whenever the window is resized
+  		windowWidth = $(window).width();
+  		if(windowWidth < 700){
+  			width = 600 - margin.left - margin.right;
+  		}
+  		else if(windowWidth < 1300){
+  			width = 500 - margin.left - margin.right;	
+  		}
+  		
+
+  		console.log("new window width " + windowWidth); // New height
+  		//$(window).width(); // New width
+		});
 
 		var formatDate = d3.time.format("%d-%b-%y");
 

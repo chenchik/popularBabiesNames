@@ -50,9 +50,10 @@ p.infoText {
     margin-left: auto;
     margin-right: auto;
     width: 700px;
+    margin-right: 40px;
 }
 .belowD3Container {
-    display:inline-flex;
+    
     width: 1140px;
     background: white;
     z-index: 1;
@@ -60,17 +61,21 @@ p.infoText {
     padding-bottom: 20px;
 }
 .timeContainer {
-    width: 50%;
-    padding-right: 20px;
-    margin-right: 20px;
-    border-right: 1px solid #ccc;
+    width: 400px;
+    padding-bottom: 20px;
+    
+    
     margin-bottom: 20px;
 }
 .angContainer{
-	width: 48%;
+	width: 1140px;
+	background: white;
+    z-index: 2;
+    padding-top: 30px;
+    display: inline-flex;
 }
 div#theHomeSlider {
-    width: 86%;
+    width: 44%;
     margin-top: 17px;
     margin-left: 10px;
     margin-right: 10px;
@@ -202,23 +207,26 @@ p.letterText {
 }
 .alphaSliderContainer {
     display: inline-flex;
-    width: 100%;
+    width: 82%;
     margin-top: 0px;
 }
 span.sliderMark.alphaSliderMarker {
-    margin-top: 20px;
+    margin-top: 0px;
     margin-left: 15px;
     margin-right: 15px;
 }
 div#theAlphaSlider {
-    width: 35%;
-    margin-top: 25px;
+    width: 50%;
+    margin-top: 4px;
 }
 .alphaInfoText {
-    margin-top: 20px;
+    margin-top: 0px;
 }
 .slider-handle.max-slider-handle.round {
     background: #6b6ecf;
+}
+.outerGenderContainer {
+    width: 50%;
 }
 p.questionMarkText {
     font-size: 20px;
@@ -248,6 +256,7 @@ p.questionMarkText {
 .furtherInfo {
     color: #777777;
     font-size: 20px;
+    line-height: 50px;
 }
 span.sliderMark.alphaSliderMarker.right {
     margin-right: 0px;
@@ -268,6 +277,277 @@ circle:hover {
 }
 circle {
     transition: opacity 0.3s;
+}
+.d3AndOthersContainer {
+    display: inline-flex;
+    width: 1140px;
+    /*border-bottom: 1px solid #ccc;*/
+    /*margin-bottom: 40px;*/
+}
+p.angTitle {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+        background: #CE6DBD;
+    padding: 50px;
+}
+.textContainer{
+	width: 400px;
+	margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+p.questionMarkT {
+    padding: 10px;
+    /* width: 40px; */
+    width: 26px;
+    height: 25px;
+    /* margin-left: auto; */
+    margin-right: auto;
+    padding: 0px;
+    background: #6b70cf;
+    border-radius: 20px;
+    color: white;
+    padding-left: 8px;
+    padding-top: 3px;
+    font-size: 16px;
+}
+p.questionMarkT {
+	cursor:pointer;
+}
+.currentYearContainer {
+    width: 400px;
+       padding-bottom: 0px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+
+}
+
+p.currentYearTitle {
+    font-size: 40px;
+    color: #777777;
+}
+p.currentYearText {
+    font-size: 40px;
+    color: #6b70cf;
+}
+.initialInfo.p{
+	line-height: 50px;
+}
+.initialInfo{
+	line-height:50px;
+}
+.outerAngContainer {
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+	.outerAngContainer {
+    	width: 970px;
+	}
+	.d3AndOthersContainer {
+    	display: block;
+    	    width: 970px;
+    	    margin-bottom: 30px;
+	}
+	.otherD3Container {
+		margin-right: auto !important;
+	}
+	.belowD3Container {
+    	width: 970px;
+	}
+	.textContainer {
+		width: 970px;
+		    margin-top: -40px;
+		    text-align: center;
+	}
+	p.questionMarkT {
+    	margin-left: auto;
+    	padding-left: 1px;
+	}
+	.currentYearContainer {
+    	text-align: center;
+    	width: 100%;
+	}
+	.timeContainer {
+    	width: 100%;
+    	    text-align: center;
+    	    margin-top: 25px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+	}
+	div#theHomeSlider {
+    	width: 65%;
+	}
+	.angContainer {
+    	width: 970px;
+	}
+	.outerGenderContainer {
+    	width: 70%;
+	}
+	div#theAlphaSlider {
+    	width: 30%;
+	}
+	.nameContainer {
+		padding-left: 0px !important;
+   		 padding-right: 0px !important;
+    	text-align: center;
+    	margin: 19.5px;
+
+	}
+}
+@media screen and (max-width: 992px) and (min-width: 770px) {
+	.outerAngContainer {
+    	width: 750px;
+	}
+	.d3AndOthersContainer {
+    	display: block;
+    	    width: 750px;
+    	    margin-bottom: 30px;
+	}
+	.otherD3Container {
+		margin-right: auto !important;
+	}
+	.belowD3Container {
+    	width: 750px;
+	}
+	.textContainer {
+		width: 750px;
+		    margin-top: -40px;
+		    text-align: center;
+	}
+	p.questionMarkT {
+    	margin-left: auto;
+    	padding-left: 1px;
+	}
+	.currentYearContainer {
+    	text-align: center;
+    	width: 100%;
+	}
+	.timeContainer {
+    	width: 100%;
+    	    text-align: center;
+    	    margin-top: 25px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+	}
+	div#theHomeSlider {
+    	width: 65%;
+	}
+	.angContainer {
+    	width: 750px;
+	}
+	.outerGenderContainer {
+    	width: 24%;
+	}
+	div#theAlphaSlider {
+    	width: 39%;
+	}
+	.genders .infoText {
+    	display: none;
+	}
+	.nameContainer{
+		margin: 12px;
+	}
+
+}
+@media screen and (max-width: 770px) and (min-width: 0px) {
+	.outerAngContainer {
+    	width: 100%;
+	}
+	.d3AndOthersContainer {
+    	display: block;
+    	    width: 100%;
+    	    margin-bottom: 30px;
+	}
+	.otherD3Container {
+		margin-right: auto !important;
+	}
+	.belowD3Container {
+    	width: 100%;
+	}
+	.textContainer {
+		width: 100%;
+		    margin-top: -40px;
+		    text-align: center;
+	}
+	p.questionMarkT {
+    	margin-left: auto;
+    	padding-left: 1px;
+	}
+	.currentYearContainer {
+    	text-align: center;
+    	width: 100%;
+	}
+	.timeContainer {
+    	width: 100%;
+    	    text-align: center;
+    	    margin-top: 25px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+	}
+	div#theHomeSlider {
+    	width: 65%;
+	}
+	.angContainer {
+    	width: 100%;
+    	    padding-bottom: 20px;
+	}
+	.outerGenderContainer {
+    	width: 24%;
+	}
+	div#theAlphaSlider {
+    	width: 100%;
+	}
+	.genders .infoText {
+    	display: none;
+	}
+	.nameContainer{
+		margin: 0px;
+	}
+	p.infoText.alphaInfoText {
+    	display: none;
+	}
+	span.sliderMark.alphaSliderMarker.left {
+    	margin-left: 40px;
+	}
+	span.sliderMark.alphaSliderMarker.right {
+    	margin-right: 20px;
+	}
+	.otherD3Container {
+    	width: 100%;
+    	margin-bottom: 30px;
+    	overflow: auto;
+	}
+
+}
+@media screen and (max-width: 400px) and (min-width: 0px) {
+	.outerGenderContainer {
+    	width: 34%;
+	}
+}
+
+.theFooter {
+    
+    background: #6b6ecf;
+    margin-top: 40px;
+}
+.footerContainer {
+    padding: 20px;
+    padding-bottom: 10px;
+}
+.footerText {
+    color: white;
+    font-size: 15px;
+}
+.footerATag:hover {
+    text-decoration: none;
+}
+a p.footerText:hover {
+    color: #eee;
 }
 
 
@@ -305,7 +585,7 @@ circle {
 
 
 	<div class="theHeader">
-		<p class="headerText">Common Baby Names For <%= year %></p>
+		<p class="headerText">Common Baby Names</p>
 	</div>
 	
 	
@@ -314,41 +594,55 @@ circle {
 	
 	
 	<div class="container">
-		<div class="informationConatainer">
-			<div class="infoSymbol">
-				<p class="questionMarkText">?</p>
-			</div>
-			<div class="initialInfo">
-				<p>This is a website showcasing ineractive data about the most popular baby names throughout 1880 to 2014.</p>
-				<p>Click the image above to reveal further information.</p>
-			</div>
-			<div class="furtherInfo" style="display:none;">
-				<p>This is a website showcasing ineractive data about the most popular baby names throughout 1880 to 2014.</p>
-				<p>Currently, the most popular baby names of <%= year %> are displayed. To show a bubble chart of popular baby names for other years. Chose a year on the timeline below and click submit.</p>
-				<p>Below the timeline are a list of names, these names represent the most popular names throughout time where popularity is defined as a name having had a count of greater than 15000 for at least one year.</p>
-				<p>You can interact with these names by restricting names by gender, or restricting them alphabetically.</p>
-				<p>Clicking on a name takes you to a seperate page that displays interactive statistics for that name from 1880 to 2014.</p>
-			</div>
-		</div>
-		<div class="otherD3Container"></div>
-		<div class="belowD3Container">
-			<div class="timeContainer">
-				<p class="infoText">Above are the most common baby names for <%= year %>.</p>
-				<p class="infoText">Choose a year to render other common names in time. </p>
-				<div class="sliderContainer">
-					<span class="sliderMark">1880</span>
-						<input id="homeSlider" data-slider-id='theHomeSlider' type="text" data-slider-min="1880" data-slider-max="2014" data-slider-step="1" data-slider-value="<%= year %>" ng-model="theYear" ng-change="changeCount();"/>
-					<span class="sliderMark">2014</span>
-					<!--<p>{{theYear}}</p>-->
-					<p id="initYear" style="display:none;"><%= year %></p>
-					<div class="submitTimeContainer">
-						<a href="/home/year/{{theYear}}" class="aTagTimeButton"><p class="submitText">Submit</p></a>
+		
+		<div class="d3AndOthersContainer">
+			<div class="otherD3Container"></div>
+			<div class="belowD3Container">
+				<div class="textContainer">
+					<p class="questionMarkT">?</p>
+					<div class="initialInfo">
+						<p>This is an interactive website showing popular baby names from 1880 to 2014.</p>
+						<p>Click the icon above for further information.</p>
+					</div>
+					
+					<div class="furtherInfo" style="display:none;">
+						<p>This is a website showcasing ineractive data about the most popular baby names throughout 1880 to 2014.</p>
+						<p>Currently, the most popular baby names of <%= year %> are displayed. To show a bubble chart of popular baby names for other years. Chose a year on the timeline below and click submit.</p>
+						<p>Below the timeline are a list of names, these names represent the most popular names throughout time where popularity is defined as a name having had a count of greater than 15000 for at least one year.</p>
+						<p>You can interact with these names by restricting names by gender, or restricting them alphabetically.</p>
+						<p>Clicking on a name takes you to a seperate page that displays interactive statistics for that name from 1880 to 2014.</p>
+					</div>
+					
+				</div>
+				<div class="afterInfo">
+					<div class="currentYearContainer">
+						<p class="currentYearTitle">Current Year</p>
+						<p class="currentYearText"><%= year %></p>
+					</div>
+					<div class="timeContainer">
+						<p class="infoText">Above are the most common baby names for <%= year %>.</p>
+						<p class="infoText">Choose a year to render other common names in time. </p>
+						<div class="sliderContainer">
+							<span class="sliderMark">1880</span>
+								<input id="homeSlider" data-slider-id='theHomeSlider' type="text" data-slider-min="1880" data-slider-max="2014" data-slider-step="1" data-slider-value="<%= year %>" ng-model="theYear" ng-change="changeCount();"/>
+							<span class="sliderMark">2014</span>
+							<!--<p>{{theYear}}</p>-->
+							<p id="initYear" style="display:none;"><%= year %></p>
+							<div class="submitTimeContainer">
+								<a href="/home/year/{{theYear}}" class="aTagTimeButton"><p class="submitText">Submit</p></a>
+							</div>
+						</div>
 					</div>
 				</div>
+				
 			</div>
+		
+		</div>
+	</div>
+		<p class="angTitle">Below is a list of all major names throughout time.</p>
+		<div class="outerAngContainer">
 			<div class="angContainer">
-				<p class="infoText">Below is a list of all major names throughout time.</p>
-				<div>
+				<div class="outerGenderContainer">
 					<div class="genders">
 						<div class="infoText">Click a sign to toggle gender.</div>
 						<div ng-click="toggleMale();" ng-class="angMale" class="gButton male">&#9794;</div>
@@ -366,15 +660,15 @@ circle {
 						
 			</div>	
 		</div>
-		
+	<div class="container">
 		
 
 		<div class="outerOuterLetterConatiner">
 			<div class="outerLetterContainer" ng-repeat="(key,letter) in letters"ng-show="showLetter(key)">
-				<div class="col-md-12 letterContainer">
+				<div class="col-xs-12 col-sm-12 col-md-12 letterContainer">
 					<p class="letterText">{{key}}</p>
 				</div>
-				<a href="/name/{{name.Name}}" ng-repeat="name in letter" ng-class="name.Gender" class="nameContainer col-md-1" ng-show="showGender(name.Gender)">
+				<a href="/name/{{name.Name}}" ng-repeat="name in letter" ng-class="name.Gender" class="nameContainer col-xs-4 col-sm-2 col-md-1" ng-show="showGender(name.Gender)">
 					<p class="namesBoxText">{{name.Name}}</p>
 				</a>
 			</div>
@@ -440,9 +734,9 @@ circle {
 				return ('Range: ' + value);
 			}
 		});
-		$('.infoSymbol').on('click', function(e){
+		$('.questionMarkT').on('click', function(e){
 			$('.furtherInfo').slideToggle('fast');
-			$('.initialInfo').slideUp('fast');
+			$('.initialInfo').slideToggle('fast');
 		});
 
 		/*$(window).scroll(function(e){ 
@@ -457,8 +751,9 @@ circle {
 		  } 
 		});*/
 		//var mediaTop = $('.belowD3Container').offset().top + $(".otherD3Container").height() - 40; 
-		var mediaTop = $('.belowD3Container').offset().top; 
-		var media = $('.belowD3Container');
+		//var mediaTop = $('.angContainer').offset().top + 35;
+		var mediaTop = $('.headerText').outerHeight() + $('.d3AndOthersContainer').outerHeight() + $('.angContainer').outerHeight();
+		var media = $('.angContainer');
 		//var mediaTop = $('.container').position().top; 
 		//var media = $('.container');
 		//var elem = $('.belowD3Container');
@@ -466,13 +761,15 @@ circle {
 		$(document).scroll( function() {
 		   var scrollTop = $(document).scrollTop();
 		   console.log(mediaTop);
-		   console.log($(".otherD3Container").height());
-		   var mediaTop2 = mediaTop + $(".otherD3Container").height() + $('.informationConatainer').height() - $('.belowD3Container').height() + 60;
+		   console.log($(".angContainer").height());
+		   //var mediaTop2 = mediaTop + $(".d3AndOthersContainer").height() - $('.angContainer').height() + 60;
+		   //var mediaTop2 = mediaTop;
+		   var mediaTop2 = $('.headerText').outerHeight() + $('.d3AndOthersContainer').outerHeight() + $('.angContainer').outerHeight() + $('.angTitle').outerHeight() - 70;
 		   //fix/unfix as necessary
 		   if (mediaTop2 < scrollTop) {
 		       //$(media).addClass('fixed');
 		       $(media).css({'position': 'fixed', 'top': '0px'}); 
-		       $(".outerOuterLetterConatiner").css({'margin-top': $('.belowD3Container').outerHeight()+'px'});
+		       $(".outerOuterLetterConatiner").css({'margin-top': $('.angContainer').outerHeight()+'px'});
 		   }
 		   else { 
 		       $(media).css({'position': 'static', 'top': '0px'});
@@ -518,51 +815,50 @@ circle {
 			.attr("cy", function(d){ return d.y; })
 			.style("fill", function(d) { return color(d.value); })
 			.on('mouseover', function(d) {
-				console.log('over, value inside is ' + d.value);
-                d3.select('.tooltip')
-                    .html(d.Name + ': ' + d.value)
-					.style('opacity', 1);
+				var sel = '.textCirc'+d['Name'].toString();
+                d3.select(sel)
+                    .html(d.value);
             })
             .on('mouseout', function(d) {
-                d3.select('.tooltip')
-                    .style('opacity', 0);
-            })
-            .on('mousemove', function(d) {
-                d3.select('.tooltip')
-                    .style('left', (d3.event.clientX- 260) + 'px')
-                    .style('top', (d3.event.clientY - 760) + 'px');
+                var sel = '.textCirc'+d['Name'].toString();
+                d3.select(sel)
+                    .html(d['Name']);
             });
 
 		//format the text for each bubble
 		bubbles.append("text")
 			.attr("x", function(d){ return d.x; })
 			.attr("y", function(d){ return d.y + 5; })
+			.attr('class', function(d){ return "textCirc"+d["Name"]; })
 			.attr("text-anchor", "middle")
-			.text(function(d){ return d["Name"]; })
+			.text(function(d){ 
+
+				return d["Name"]; })
 			.style({
 				"fill":"white", 
 				"font-family":"Helvetica Neue, Helvetica, Arial, san-serif",
 				"font-size": "12px"
 			})
 			.on('mouseover', function(d) {
-				console.log('over, value inside is ' + d.value);
-                d3.select('.tooltip')
-                    .html(d.Name + ': '+ d.value)
-					.style('opacity', 1);
+				var sel = '.textCirc'+d['Name'].toString();
+                d3.select(sel)
+                    .html(d.value);
+					//.style('opacity', 1);
             })
             .on('mouseout', function(d) {
-                d3.select('.tooltip')
-                    .style('opacity', 0);
-            })
-            .on('mousemove', function(d) {
-                d3.select('.tooltip')
-                    .style('left', (d3.event.clientX- 260) + 'px')
-                    .style('top', (d3.event.clientY - 760) + 'px');
-					//subtract pageX, scrollX
+            	var sel = '.textCirc'+d['Name'].toString();
+                d3.select(sel)
+                    .html(d['Name']);
             });
 	});
 	
 	</script>	
 	<script src="/yearController.js"></script>
+	<div class="theFooter">
+		<div class="container footerContainer">
+			<p class="footerText">&#169; Danila Chenchik Industries</p>
+			<a href="https://github.com/chenchik/popularBabiesNames" class="footerATag"><p class="footerText">Project Information</p></a>
+		</div>
+	</div>
 </body>
 </html>
