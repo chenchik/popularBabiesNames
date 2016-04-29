@@ -1,5 +1,7 @@
 # popularBabiesNames
 
+This is an interactive website showing popular baby names from 1880 to 2014 built using Node.js, Angular.js, jQuery, Express, and Vagrant. 
+
 In order to import baby name data, we need to import the NationalNames.csv into mongodb.
 
 To do so:
@@ -34,7 +36,7 @@ Backend node functionality, mongodb queries, and routes are stored in server.js
 
 to launch the website type <code>node server.js</code> into vagrant in the 'babynames' directory.
 
-Then tpye <code>localhost:8080</code> into your browser url.
+Then type <code>localhost:8080</code> into your browser url.
 
 ________________FRONT END_______
 
