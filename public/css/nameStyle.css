@@ -1,0 +1,207 @@
+.theHeader {
+    width: 100%;
+    text-align: center;
+    background: #6B6ECF;
+}
+p.headerText {
+    padding: 20px;
+    color: white;
+    font-size: 40px;
+}
+.namesBox {
+    text-align: center;
+    padding: 20px;
+    /* margin: 0px; */
+    outline: 1px solid #19eacb;
+    background: white;
+    /* opacity: 0.5; */
+}
+.d3Container {
+    margin-top: 0px;
+}
+p.infoText {
+    color: #777777;
+    font-size: 20px;
+}
+.otherD3Container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+.belowD3Container {
+    text-align: center;
+}
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  
+}
+
+.line {
+  fill: none;
+  stroke: #6b6ecf;
+  stroke-width: 1.5px;
+}
+
+#yearNum {
+	border:0; 
+	color:#19EACB; 
+	font-weight:bold;
+}
+.yearSlider{
+	width:50%;
+}
+.gain{
+	color: #19e857;
+}
+.loss{
+	color: #ea1958;
+}
+
+#ex1Slider .slider-handle{
+	background:#6b6ecf;
+}
+#ex2Slider .slider-handle{
+	background:#6b6ecf;
+}
+span.yearMarker {
+    margin-right: 10px;
+	font-weight: 700;
+	    margin-left: 10px;
+	        font-size: 15px;
+}
+.slider.slider-horizontal {
+    width: 84% !important;
+}
+p.timelineHeader {
+    font-weight: 500;
+    font-size: 20px;
+}
+.backButton {
+    padding: 10px;
+    border: 1px solid #6b6ecf;
+    border-radius: 5px;
+    color: #6b6ecf;
+    font-size: 15px;
+    margin-top: 40px;
+    text-align: center;
+    -webkit-transition: color 0.5s, background-color 0.5s;
+    transition: color 0.5s, background-color 0.5s;
+
+}
+.backButton:hover {
+    text-decoration: none;
+    color: white;
+    background: #6b6ecf;
+}
+.aTagBackButton:hover{
+	text-decoration: none;
+}
+.leftDataContiner {
+    margin-top: 40px;
+}
+.bottomContainer {
+    margin-top: 40px;
+}
+p.countText {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 0px;
+    margin-top: -6px;
+}
+.theFooter {
+    
+    background: #6b6ecf;
+    margin-top: 40px;
+}
+.footerContainer {
+    padding: 20px;
+    padding-bottom: 10px;
+}
+.footerText {
+    color: white;
+    font-size: 15px;
+}
+.footerATag:hover {
+    text-decoration: none;
+}
+a p.footerText:hover {
+    color: #eee;
+}
+.svgContainer {
+    padding-top: 40px;
+    width: 100%;
+    overflow: auto;
+}
+@media screen and (min-width: 992px){
+    .bottomContainer.col-xs-6.col-sm-6.col-md-2 {
+        margin-top: 44px;
+    }   
+}
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+	div#ex1Slider{
+		width: 81% !important;
+	}
+	div#ex2Slider{
+		width: 81% !important;
+	}
+}
+@media screen and (max-width: 992px) and (min-width: 770px) {
+	div#ex1Slider{
+		width: 83% !important;
+	}
+	div#ex2Slider{
+		width: 83% !important;
+	}
+	.topData.col-xs-6.col-sm-6.col-md-2 {
+    	margin-top: 25px;
+    	margin-bottom: 25px;
+	}
+}
+@media screen and (max-width: 770px) and (min-width: 0px) {
+	div#ex1Slider{
+		width: 81% !important;
+	}
+	div#ex2Slider{
+		width: 81% !important;
+	}
+	.topData.col-xs-6.col-sm-6.col-md-2 {
+    	margin-top: 30px;
+    	margin-bottom: 50px;
+	}
+}
+@media screen and (max-width: 670px) and (min-width: 0px) {
+	div#ex1Slider{
+		width: 80% !important;
+	}
+	div#ex2Slider{
+		width: 80% !important;
+	}
+}
+@media screen and (max-width: 640px) and (min-width: 0px) {
+	div#ex1Slider{
+		width: 70% !important;
+	}
+	div#ex2Slider{
+		width: 70% !important;
+	}
+}
+@media screen and (max-width: 500px) and (min-width: 0px) {
+	div#ex1Slider{
+		width: 59% !important;
+	}
+	div#ex2Slider{
+		width: 59% !important;
+	}
+}

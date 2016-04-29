@@ -1,0 +1,550 @@
+text {
+  font: 10px sans-serif;
+}
+text:hover {
+    cursor: default;
+}
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+  color: #ffffff;
+}
+
+.arc path {
+  stroke: #fff;
+}
+
+.theHeader {
+    width: 100%;
+    text-align: center;
+    background: #6B6ECF;
+}
+p.headerText {
+    padding: 20px;
+    color: white;
+    font-size: 40px;
+}
+.namesBox {
+    text-align: center;
+    padding: 20px;
+    /* margin: 0px; */
+    outline: 1px solid #19eacb;
+    background: white;
+    /* opacity: 0.5; */
+}
+.d3Container {
+    margin-top: 0px;
+}
+p.infoText {
+    color: #777777;
+    font-size: 20px;
+    margin-bottom: 24px;
+}
+.otherD3Container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+    margin-right: 40px;
+}
+.belowD3Container {
+    
+    width: 1140px;
+    background: white;
+    z-index: 1;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.timeContainer {
+    width: 400px;
+    padding-bottom: 20px;
+    
+    
+    margin-bottom: 20px;
+}
+.angContainer{
+	width: 1140px;
+	background: white;
+    z-index: 2;
+    padding-top: 30px;
+    display: inline-flex;
+}
+div#theHomeSlider {
+    width: 44%;
+    margin-top: 17px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+span.sliderMark {
+    font-weight: 700;
+    margin-top: 12px;
+    font-size: 20px;
+}
+p.submitText {
+    color: #6b6ecf;
+    font-size: 20px;
+}
+.sliderContainer {
+    display: flex;
+    margin-top: -6px;
+}
+.submitTimeContainer {
+    width: 23%;
+    text-align: center;
+    padding: 0px;
+    padding-top: 11px;
+        border: 1px solid #6b6ecf;
+    margin-left: 23px;
+    border-radius: 5px;
+    transition: background 0.3s;
+    -webkit-transition:background 0.3s;
+}
+.submitTimeContainer:hover {
+    background: #6b6ecf;
+}
+.slider-handle.min-slider-handle.round {
+    background: #6b6ecf;
+}
+.submitTimeContainer:hover > a {
+    text-decoration: none;
+}
+.submitTimeContainer:hover > a > p {
+    color: white;
+}
+.nameContainer {
+    padding: 10px;
+    padding-top: 21px;
+    padding-left: 9px;
+    text-align: center;
+    border: 1px solid black;
+    margin: 9.5px;
+    border-radius: 6px;
+    transition: background 0.3s;
+    -webkit-transition: background 0.3s;
+}
+.nameContainer.M > p {
+    color: #6B6ECF;
+}
+.nameContainer.M {
+    border-color: #6B6ECF;
+}
+.nameContainer.M:hover {
+    text-decoration: none;
+    background: #6b6ecf;
+}
+.nameContainer.M:hover > p {
+    color: white;
+}
+
+
+
+.nameContainer.F > p {
+    color: #CE6DBD;
+}
+.nameContainer.F {
+    border-color: #CE6DBD;
+}
+.nameContainer.F:hover {
+    text-decoration: none;
+    background: #CE6DBD;
+}
+.nameContainer.F:hover > p {
+    color: white;
+}
+.gButton:hover {
+    cursor: pointer;
+}
+.gButton {
+
+    margin-top: -5px;
+    margin-left: 27px;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top:5px;
+    padding-bottom: 5px;
+    border-radius: 36px;
+    font-size: 20px;
+}
+.genders {
+    display: inline-flex;
+}
+.infoText {
+    color: #777777;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+.col-md-12.letterContainer {
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #bbb;
+    padding-top: 10px;
+}
+p.letterText {
+    font-size: 40px;
+    color: #888;
+}
+.activeMale{
+	color:white;
+	background: #6b6ecf;
+	border:1px solid #6b6ecf;
+}
+.deactiveMale{
+	color:#6b6ecf;
+	background:white;
+	border:1px solid #6b6ecf;
+}
+.activeFemale{
+	color:white;
+	background: #CE6DBD;
+	border:1px solid #CE6DBD;
+}
+.deactiveFemale{
+	color:#CE6DBD;
+	background:white;
+	border:1px solid #CE6DBD;
+}
+.alphaSliderContainer {
+    display: inline-flex;
+    width: 82%;
+    margin-top: 0px;
+}
+span.sliderMark.alphaSliderMarker {
+    margin-top: 0px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+div#theAlphaSlider {
+    width: 50%;
+    margin-top: 4px;
+}
+.alphaInfoText {
+    margin-top: 0px;
+}
+.slider-handle.max-slider-handle.round {
+    background: #6b6ecf;
+}
+.outerGenderContainer {
+    width: 50%;
+}
+p.questionMarkText {
+    font-size: 20px;
+    /* padding: 10px; */
+    color: white;
+}
+.infoSymbol {
+    width: 30px;
+    /* height: 32px; */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+    background: #6b70cf;
+    border-radius: 20px;
+}
+.infoSymbol:hover{
+	cursor:pointer;
+}
+.informationConatainer {
+    text-align: center;
+    margin-top: 40px;
+}
+.initialInfo {
+    color: #777777;
+    font-size: 20px;
+}
+.furtherInfo {
+    color: #777777;
+    font-size: 20px;
+   line-height: 1.42857143;
+}
+span.sliderMark.alphaSliderMarker.right {
+    margin-right: 0px;
+}
+.tooltip {
+    position: absolute;
+    background: black;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 5px solid black;
+	-webkit-transition: opacity 0.1s;
+	transition: opacity 0.15s;
+}
+circle:hover {
+    opacity: 0.7;
+}
+circle {
+    transition: opacity 0.3s;
+}
+.d3AndOthersContainer {
+    display: inline-flex;
+    width: 1140px;
+    /*border-bottom: 1px solid #ccc;*/
+    /*margin-bottom: 40px;*/
+}
+p.angTitle {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+        background: #CE6DBD;
+    padding: 50px;
+}
+.textContainer{
+	width: 400px;
+	margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+p.questionMarkT {
+    padding: 10px;
+    /* width: 40px; */
+    width: 26px;
+    height: 25px;
+    /* margin-left: auto; */
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding: 0px;
+    background: #6b70cf;
+    border-radius: 20px;
+    color: white;
+    padding-left: 9px;
+    padding-top: 3px;
+    font-size: 16px;
+}
+p.questionMarkT {
+	cursor:pointer;
+}
+.currentYearContainer {
+    width: 400px;
+       padding-bottom: 0px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+
+}
+
+p.currentYearTitle {
+    font-size: 40px;
+    color: #777777;
+}
+p.currentYearText {
+    font-size: 40px;
+    color: #6b70cf;
+}
+.initialInfo.p{
+	line-height: 50px;
+}
+.initialInfo{
+	line-height:1.42857143;
+}
+.outerAngContainer {
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+	.outerAngContainer {
+    	width: 970px;
+	}
+	.d3AndOthersContainer {
+    	display: block;
+    	    width: 970px;
+    	    margin-bottom: 30px;
+	}
+	.otherD3Container {
+		margin-right: auto !important;
+	}
+	.belowD3Container {
+    	width: 970px;
+	}
+	.textContainer {
+		width: 970px;
+		    margin-top: -40px;
+		    text-align: center;
+	}
+	p.questionMarkT {
+    	margin-left: auto;
+    	padding-left: 1px;
+	}
+	.currentYearContainer {
+    	text-align: center;
+    	width: 100%;
+	}
+	.timeContainer {
+    	width: 100%;
+    	    text-align: center;
+    	    margin-top: 25px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+	}
+	div#theHomeSlider {
+    	width: 65%;
+	}
+	.angContainer {
+    	width: 970px;
+	}
+	.outerGenderContainer {
+    	width: 70%;
+	}
+	div#theAlphaSlider {
+    	width: 30%;
+	}
+	.nameContainer {
+		padding-left: 0px !important;
+   		 padding-right: 0px !important;
+    	text-align: center;
+    	margin: 19.5px;
+
+	}
+}
+@media screen and (max-width: 992px) and (min-width: 770px) {
+	.outerAngContainer {
+    	width: 750px;
+	}
+	.d3AndOthersContainer {
+    	display: block;
+    	    width: 750px;
+    	    margin-bottom: 30px;
+	}
+	.otherD3Container {
+		margin-right: auto !important;
+	}
+	.belowD3Container {
+    	width: 750px;
+	}
+	.textContainer {
+		width: 750px;
+		    margin-top: -40px;
+		    text-align: center;
+	}
+	p.questionMarkT {
+    	margin-left: auto;
+    	padding-left: 1px;
+	}
+	.currentYearContainer {
+    	text-align: center;
+    	width: 100%;
+	}
+	.timeContainer {
+    	width: 100%;
+    	    text-align: center;
+    	    margin-top: 25px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+	}
+	div#theHomeSlider {
+    	width: 65%;
+	}
+	.angContainer {
+    	width: 750px;
+	}
+	.outerGenderContainer {
+    	width: 24%;
+	}
+	div#theAlphaSlider {
+    	width: 39%;
+	}
+	.genders .infoText {
+    	display: none;
+	}
+	.nameContainer{
+		margin: 12px;
+	}
+
+}
+@media screen and (max-width: 770px) and (min-width: 0px) {
+	.outerAngContainer {
+    	width: 100%;
+	}
+	.d3AndOthersContainer {
+    	display: block;
+    	    width: 100%;
+    	    margin-bottom: 30px;
+	}
+	.otherD3Container {
+		margin-right: auto !important;
+	}
+	.belowD3Container {
+    	width: 100%;
+	}
+	.textContainer {
+		width: 100%;
+		    margin-top: -40px;
+		    text-align: center;
+	}
+	p.questionMarkT {
+    	margin-left: auto;
+    	padding-left: 1px;
+	}
+	.currentYearContainer {
+    	text-align: center;
+    	width: 100%;
+	}
+	.timeContainer {
+    	width: 100%;
+    	    text-align: center;
+    	    margin-top: 25px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+	}
+	div#theHomeSlider {
+    	width: 65%;
+	}
+	.angContainer {
+    	width: 100%;
+    	    padding-bottom: 20px;
+	}
+	.outerGenderContainer {
+    	width: 24%;
+	}
+	div#theAlphaSlider {
+    	width: 100%;
+	}
+	.genders .infoText {
+    	display: none;
+	}
+	.nameContainer{
+		margin: 0px;
+	}
+	p.infoText.alphaInfoText {
+    	display: none;
+	}
+	span.sliderMark.alphaSliderMarker.left {
+    	margin-left: 40px;
+	}
+	span.sliderMark.alphaSliderMarker.right {
+    	margin-right: 20px;
+	}
+	.otherD3Container {
+    	width: 100%;
+    	margin-bottom: 30px;
+    	overflow: auto;
+	}
+
+}
+@media screen and (max-width: 400px) and (min-width: 0px) {
+	.outerGenderContainer {
+    	width: 34%;
+	}
+}
+
+.theFooter {
+    
+    background: #6b6ecf;
+    margin-top: 40px;
+}
+.footerContainer {
+    padding: 20px;
+    padding-bottom: 10px;
+}
+.footerText {
+    color: white;
+    font-size: 15px;
+}
+.footerATag:hover {
+    text-decoration: none;
+}
+a p.footerText:hover {
+    color: #eee;
+}

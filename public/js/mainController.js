@@ -3,28 +3,28 @@ var yearApp = angular.module('yearApp', []);
 yearApp.controller('yearCtrl', ['$scope', '$http', function($scope, $http) {
 
 	$scope.theYear = document.getElementById("initYear").innerHTML;
-	console.log($scope.theYear);
 	
 	$http.get('/home').success(function(response){
-		console.log("i got the data");
 		$scope.names = response;
 		
+		//makes an array of uniquenames for the list of names
 		$scope.uniqueNames = {};
 		var uniqify = function(obj, people){
 			for(var i in people){
-				if(obj[people[i].Name] == undefined){
-					$scope.uniqueNames[people[i].Name] = people[i];				
+				if(obj[people[i].Name] == undefined || (obj[people[i].Name].Gender != 'M' || obj[people[i].Name].Gender != 'F')){
+					$scope.uniqueNames[people[i].Name] = people[i];	
 				}
 			}
 		};
 		uniqify($scope.uniqueNames, $scope.names);
 		$scope.letters = {};
+
+		//method to put all names into their own first letter category
 		var alphabetize = function(letters, names){
 			for(var i in names){
 				var currentChar = names[i].Name.charAt(0);
 				if(letters[currentChar] == undefined){
 					letters[currentChar] = {};
-					//var key = names[i].Name;
 					letters[currentChar][names[i].Name] = names[i];
 				}
 				else{
@@ -36,62 +36,10 @@ yearApp.controller('yearCtrl', ['$scope', '$http', function($scope, $http) {
 
 		alphabetize($scope.letters, $scope.uniqueNames);
 		var debugObj = $scope.letters;
-		console.log("here are the unique letters " + $scope.letters);
-		console.log($($scope.letters));
 		
 	});
 	
-		
-	
-	
-	$scope.stuff = "hello";
-	
-	$scope.uniqueNames = {};
-	var uniqify = function(obj, people){
-		for(var i in people){
-			if(obj[people[i].Name] == undefined){
-				$scope.uniqueNames[people[i].Name] = people[i];				
-			}
-		}
-	}
-	uniqify($scope.uniqueNames, $scope.names);
-	//for(var i in $scope.uniqueNames){
-	//	console.log("uniqye names are " + $scope.uniqueNames.Name + " at " + i);
-	//}
-	//console.log("uniqye names are "+ $scope.uniqueNames);
-	
-	
-	var seenBefore = {"jjj": 5};
 	var _this = this;
-	$scope.haventSeen = function(person){
-		var name = person.Name;
-		console.log(name);
-		console.log(name+"s id is: "+ person.Id);
-		console.log(seenBefore);
-		console.log(seenBefore[name]);
-		if(seenBefore[name] === undefined){
-			console.log("havent seen before");
-			seenBefore[name] = 1;
-			console.log("about to return true");
-			return "true";
-		}
-		else if(seenBefore[name] == 1){
-			console.log("saw it once");
-			seenBefore[name] = 2;
-			console.log("returning true second time");
-			return "true";
-		}
-		
-			console.log("returning false");
-			return "false";
-		
-		//console.log(seenBefore);
-	};
-	
-	$scope.testing = function(){
-		console.log("testing");
-		return "testing";
-	}
 
 	$scope.maleActive = true;
 	$scope.femaleActive = true;
@@ -99,7 +47,6 @@ yearApp.controller('yearCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.angFemale = "activeFemale";
 	$scope.toggleMale = function(){
 		$scope.maleActive = !$scope.maleActive;
-		console.log("male is active: " +  $scope.maleActive);
 		if($scope.angMale == "activeMale"){
 			$scope.angMale = "deactiveMale";
 		}
@@ -110,7 +57,6 @@ yearApp.controller('yearCtrl', ['$scope', '$http', function($scope, $http) {
 
 	$scope.toggleFemale = function(){
 		$scope.femaleActive = !$scope.femaleActive;
-		console.log("female is active: " + $scope.femaleActive);
 		if($scope.angFemale == "activeFemale"){
 			$scope.angFemale = "deactiveFemale";
 		}
@@ -127,6 +73,8 @@ yearApp.controller('yearCtrl', ['$scope', '$http', function($scope, $http) {
 			return $scope.maleActive; 
 		}
 	}
+
+	//variable to map numbers to letter
 	var toAlpha = {1: 'A',
 					2: 'B',
 					3: 'C',
@@ -167,6 +115,7 @@ yearApp.controller('yearCtrl', ['$scope', '$http', function($scope, $http) {
 
 	}
 
+	//variable to map letters to numbers
 	$scope.theAlphaRange = 'A,Z';
 	var letterToNumber = {'A':1 ,
 					'B': 2,
@@ -197,11 +146,7 @@ yearApp.controller('yearCtrl', ['$scope', '$http', function($scope, $http) {
 
 	};
 	$scope.showLetter = function(letter){
-		//console.log("curent letter is "+letter);
-		//console.log("theAlphaRaneg is "+ typeof $scope.theAlphaRange);
-		//for(var i)
 		var first = $scope.theAlphaRange.charAt(0);
-
 		var second = $scope.theAlphaRange.charAt(2);
 		var firstNum = letterToNumber[first];
 		var secondNum = letterToNumber[second];
