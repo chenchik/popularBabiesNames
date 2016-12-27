@@ -1,6 +1,6 @@
 # popularBabiesNames
 
-This is an interactive website showing popular baby names from 1880 to 2014 built using Node.js, Angular.js, jQuery, Express, and Vagrant. 
+This is an interactive website showcasing popular baby names from 1880 to 2014 built using Node.js, Angular.js, jQuery, Express, and Vagrant with data represented using SVG based graphics. 
 
 In order to import baby name data, we need to import the NationalNames.csv into mongodb.
 
